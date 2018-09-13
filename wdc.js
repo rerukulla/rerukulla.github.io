@@ -35,7 +35,7 @@
   
   myConnector.getData = function(table, doneCallback) {
     $.getJSON(
-      "file://C:/RAJINISH/PROJECT/Workspaces/rerukulla.github.io/orders.json",
+      "https://rerukulla.github.io/orders.json",
       function(resp) {
         var jsonData = resp.data;
 		alert("JsonDat : " + jsonData);
@@ -43,15 +43,9 @@
         // Iterate over the JSON object
         for (var i = 0, len = jsonData.length; i < len; i++) {
 		  tableData.push({
-			"Id": jsonData[i][
-				"id"
-			],
-            "date": jsonData[i][
-              "created-at"
-            ],
-			"status": jsonData[i][
-              "status"
-            ]
+			"Id": jsonData[i]["id"],
+            "date": jsonData[i]["created-at"],
+			"status": jsonData[i]["status"]
           });
 		}
         
