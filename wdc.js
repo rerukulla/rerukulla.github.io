@@ -27,7 +27,7 @@
     ];
     var tableInfo = {
       id: "Orders",
-      alias: "Orders Data Insights",
+      alias: "Orders",
       columns: cols
     };
     schemaCallback([tableInfo]);
@@ -38,6 +38,7 @@
       "file://C:/RAJINISH/PROJECT/Workspaces/rerukulla.github.io/orders.json",
       function(resp) {
         var jsonData = resp.data;
+		alert("JsonDat : " + jsonData);
         tableData = [];
         // Iterate over the JSON object
         for (var i = 0, len = jsonData.length; i < len; i++) {
