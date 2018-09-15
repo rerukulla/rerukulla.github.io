@@ -53,7 +53,7 @@
   
   myConnector.getData = function(table, doneCallback) {
     $.getJSON(
-      "http://10.150.4.4:3010/api/organizations", 
+      "file://C:/RAJINISH/PROJECT/Workspaces/rerukulla.github.io/organizations.json", 
 	  {callback: "?"},
       function(resp) {
         var jsonData = resp.data;
