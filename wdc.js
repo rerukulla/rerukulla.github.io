@@ -53,7 +53,8 @@
   
   myConnector.getData = function(table, doneCallback) {
     $.getJSON(
-      "http://10.150.4.4:3010/api/organizations",
+      "https://cors.io/?http://10.150.4.4:3010/api/organizations", 
+	  {callback: "?"},
       function(resp) {
         var jsonData = resp.data;
 		tableData = [];
