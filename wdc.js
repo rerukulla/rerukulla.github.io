@@ -63,8 +63,7 @@
 				"Id": jsonData[i]["id"],
 				"Type": jsonData[i]["type"]
 			  });	
-		  var attrData = jsonData.attributes;
-		  alert("AttrData: "+ attrData);
+		  var attrData = jsonData[i].attributes;
 		  for (var j = 0, lenth = attrData.length; j < lenth; j++) {
 			  tableData.push({
 				"OrganizationName" : attrData[j]["formatted-name"],  
