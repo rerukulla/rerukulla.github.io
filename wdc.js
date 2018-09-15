@@ -53,7 +53,7 @@
   
   myConnector.getData = function(table, doneCallback) {
     $.getJSON(
-      "file://C:/RAJINISH/PROJECT/Workspaces/rerukulla.github.io/organizations.json", 
+      "https://rerukulla.github.io/organizations.json", 
 	  function(resp) {
         var jsonData = resp.data;
 		tableData = [];
