@@ -7,27 +7,45 @@
   var cols = [
       {
         id: "Id",
-        alias: "Order Id",
+        alias: "Organization Id",
         dataType: tableau.dataTypeEnum
           .string
       },
 	  {
-        id: "status",
-        alias: "Order Status",
+        id: "Type",
+        alias: "Type",
         dataType: tableau.dataTypeEnum
           .string
       },
 	  {
-        id: "date",
-        alias: "Order Date",
+        id: "OrganizationName",
+        alias: "Organization Name",
         dataType: tableau.dataTypeEnum
           .string
-      }
+      },
+	  {
+		 id: "OrganizationType",
+		 alias: "Organization Type",
+		 dataType: tableau.dataTypeEnum
+			.string
+	  },
+	  {
+		  id: "TradingName",
+		  alias: "Trading Name",
+		  dataType: tableau.dataTypeEnum
+			.string
+	  },
+	  {
+		  id: "Language",
+		  alias: "Language",
+		  dataType: tableau.dataTypeEnum
+			.string
+	  }
       
     ];
     var tableInfo = {
-      id: "Orders",
-      alias: "Orders",
+      id: "Organizations",
+      alias: "Organizations",
       columns: cols
     };
     schemaCallback([tableInfo]);
@@ -35,18 +53,25 @@
   
   myConnector.getData = function(table, doneCallback) {
     $.getJSON(
-      "https://rerukulla.github.io/orders.json",
+      "http://10.150.4.4:3010/api/organizations",
       function(resp) {
         var jsonData = resp.data;
-		alert("JsonDat : " + jsonData);
-        tableData = [];
+		tableData = [];
         // Iterate over the JSON object
         for (var i = 0, len = jsonData.length; i < len; i++) {
 		  tableData.push({
-			"Id": jsonData[i]["id"],
-            "date": jsonData[i]["created-at"],
-			"status": jsonData[i]["status"]
-          });
+				"Id": jsonData[i]["id"],
+				"Type": jsonData[i]["type"]
+			  });	
+		  var attrData = i.attributes;
+		  for (var i = 0, len = jsonData.length; i < len; i++) {
+			  tableData.push({
+				"OrganizationName" : jsonData[i]["formatted-name"],  
+				"OrganizationType": jsonData[i]["organization-type"],
+				"TradingName": jsonData[i]["trading-name"],
+				"Language": jsonData[i]["language"]
+			  });
+		  }
 		}
         
 		table.appendRows(tableData);
