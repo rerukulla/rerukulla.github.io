@@ -62,18 +62,16 @@
 		  tableData.push({
 				"Id": jsonData[i]["id"],
 				"Type": jsonData[i]["type"]
-			  });	
-		  var attrData = jsonData[i].attributes;
-		  for (var j = 0, lenth = attrData.length; j < lenth; j++) {
-			  tableData.push({
-				"OrganizationName" : attrData[j]["formatted-name"],  
-				"OrganizationType": attrData[j]["organization-type"],
-				"TradingName": attrData[j]["trading-name"],
-				"Language": attrData[j]["language"]
 			  });
-		  }
+          var attrData = jsonData[i].attributes;
+		  tableData.push({
+				"OrganizationName" : attrData["formatted-name"],  
+				"OrganizationType": attrData["organization-type"],
+				"TradingName": attrData["trading-name"],
+				"Language": attrData["language"]
+			});
 		}
-        
+	    
 		table.appendRows(tableData);
         
 		doneCallback();
