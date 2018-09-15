@@ -54,8 +54,7 @@
   myConnector.getData = function(table, doneCallback) {
     $.getJSON(
       "file://C:/RAJINISH/PROJECT/Workspaces/rerukulla.github.io/organizations.json", 
-	  {callback: "?"},
-      function(resp) {
+	  function(resp) {
         var jsonData = resp.data;
 		tableData = [];
         // Iterate over the JSON object
