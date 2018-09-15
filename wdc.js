@@ -64,12 +64,12 @@
 				"Type": jsonData[i]["type"]
 			  });	
 		  var attrData = i.attributes;
-		  for (var i = 0, len = jsonData.length; i < len; i++) {
+		  for (var i = 0, len = attrData.length; i < len; i++) {
 			  tableData.push({
-				"OrganizationName" : jsonData[i]["formatted-name"],  
-				"OrganizationType": jsonData[i]["organization-type"],
-				"TradingName": jsonData[i]["trading-name"],
-				"Language": jsonData[i]["language"]
+				"OrganizationName" : attrData[i]["formatted-name"],  
+				"OrganizationType": attrData[i]["organization-type"],
+				"TradingName": attrData[i]["trading-name"],
+				"Language": attrData[i]["language"]
 			  });
 		  }
 		}
@@ -86,7 +86,7 @@
   $(document).ready(function() {
     $("#submitButton").click(
       function() {
-        tableau.connectionName = "Orders";
+        tableau.connectionName = "Organizations";
         tableau.submit();
       });
   });
