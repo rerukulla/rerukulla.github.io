@@ -53,7 +53,7 @@
   
   myConnector.getData = function(table, doneCallback) {
 	$.ajax({
-        url: "http://10.150.4.4:3010/api/organizations",
+        url: "//10.150.4.4:3010/api/organizations",
 		crossDomain: true,
 		dataType: 'jsonp'
     }).then(function(data) {
