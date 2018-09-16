@@ -53,8 +53,7 @@
   
   myConnector.getData = function(table, doneCallback) {
 	$.ajax({
-        url: "http://10.150.4.4:3010/api/organizations",
-		dataType: 'jsonp'
+        url: "http://cors.io/?u=http://10.150.4.4:3010/api/organizations"
     }).then(function(data) {
        var jsonData = resp.data;
 		tableData = [];
