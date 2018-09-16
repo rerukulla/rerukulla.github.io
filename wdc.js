@@ -52,10 +52,10 @@
   };
   
   myConnector.getData = function(table, doneCallback) {
-    $.getJSON(
-      "http://10.150.4.4:3010/api/organizations", 
-	  function(resp) {
-        var jsonData = resp.data;
+	$.ajax({
+        url: "http://10.150.4.4:3010/api/organizations"
+    }).then(function(data) {
+       var jsonData = resp.data;
 		tableData = [];
         // Iterate over the JSON object
         for (var i = 0, len = jsonData.length; i < len; i++) {
@@ -75,8 +75,7 @@
 		table.appendRows(tableData);
         
 		doneCallback();
-		
-      });
+    });
   };
   
   tableau.registerConnector(myConnector);
