@@ -53,7 +53,7 @@
   
   myConnector.getData = function(table, doneCallback) {
 	$.ajax({
-        url: "http://10.150.4.4:3010/api/organizations"
+        url: "<<REST-CALL>>"
     }).then(function(data) {
        var jsonData = resp.data;
 		tableData = [];
